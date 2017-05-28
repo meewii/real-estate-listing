@@ -10,5 +10,5 @@
     <color name="immo_blue">#005E99</color>
     <color name="immo_blue_darker">#00578D</color>
     <color name="immo_dark_gray">#343434</color>
-    <color name="immo_light_gray">##F2F2F2</color>
+    <color name="immo_light_gray">#F2F2F2</color>
 </resources>
