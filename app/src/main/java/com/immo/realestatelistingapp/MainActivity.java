@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ArrayList<ListItem> realEstateList = new ArrayList<>();
-        RealEstateAdapter adapter = new RealEstateAdapter(realEstateList);
+        RealEstateAdapter adapter = new RealEstateAdapter(getApplicationContext(), realEstateList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listView);

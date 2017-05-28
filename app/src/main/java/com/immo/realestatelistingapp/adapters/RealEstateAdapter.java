@@ -1,5 +1,6 @@
 package com.immo.realestatelistingapp.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,7 @@ import com.immo.realestatelistingapp.R;
 import com.immo.realestatelistingapp.models.Advertisement;
 import com.immo.realestatelistingapp.models.ListItem;
 import com.immo.realestatelistingapp.models.RealEstate;
-import com.immo.realestatelistingapp.tasks.DownloadImageTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -21,9 +22,11 @@ public class RealEstateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private final int TYPE_ADVERTISEMENT = 1;
 
     private ArrayList<ListItem> mListItems;
+    private Context mContext;
 
-    public RealEstateAdapter(ArrayList<ListItem> listItems) {
-        this.mListItems = listItems;
+    public RealEstateAdapter(Context context, ArrayList<ListItem> listItems) {
+        mContext = context;
+        mListItems = listItems;
     }
 
     @Override
@@ -82,9 +85,7 @@ public class RealEstateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
 
                 if(realEstate.getImages() != null && realEstate.getImages().size() > 0) {
-                    // TODO: keep bitmap persisted, do not download twice the same image
-                    new DownloadImageTask(realEstateHolder.image)
-                            .execute(realEstate.getImages().get(0));
+                    Picasso.with(mContext).load(realEstate.getImages().get(0)).into(realEstateHolder.image);
                 } else {
                     realEstateHolder.image.setImageBitmap(null);
                 }
