@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class RealEstateParser {
 
-    public static ArrayList<RealEstate> parse(@NonNull Response response) {
+    public static ArrayList<RealEstate> parse(@NonNull ArrayList<RealEstate> realEstateList, @NonNull Response response) {
         String tag = "RealEstateParser.parse - ";
 
         if(response.getCode() < 200 && response.getCode() > 300) {
@@ -40,8 +40,6 @@ public class RealEstateParser {
             return null;
         }
 
-        ArrayList<RealEstate> realEstates = new ArrayList<>();
-
         for(int i=0; i<items.length(); i++) {
             RealEstate realEstate;
             try {
@@ -51,10 +49,10 @@ public class RealEstateParser {
                 continue;
             }
 
-            realEstates.add(realEstate);
+            realEstateList.add(realEstate);
         }
 
-        return realEstates;
+        return realEstateList;
     }
 
 }

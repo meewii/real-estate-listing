@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:background="@color/immo_light_gray"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:adjustViewBounds="true"
+            />
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/Text.Price"
+            android:background="@color/immo_orange"
+            android:layout_width="wrap_content"
+            android:paddingTop="@dimen/margin_horizontal_S"
+            android:paddingBottom="@dimen/margin_horizontal_S"
+            android:paddingLeft="@dimen/margin_vertical_S"
+            android:paddingRight="@dimen/margin_vertical_S"
+            android:layout_above="@+id/emptyView"
+            />
+
+        <View
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_horizontal_L"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageContainer"
+        android:paddingTop="@dimen/margin_horizontal_S"
+        android:paddingBottom="@dimen/margin_horizontal_S"
+        android:paddingLeft="@dimen/margin_vertical_L"
+        android:paddingRight="@dimen/margin_vertical_L">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Text"
+            />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_marginTop="5dp"
+            style="@style/Text.Address"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -6,6 +6,7 @@
 
 
     <color name="immo_orange">#F57000</color>
+    <color name="immo_orange_transparent">#8AF57000</color>
     <color name="immo_blue_lighter">#2A7CCA</color>
     <color name="immo_blue">#005E99</color>
     <color name="immo_blue_darker">#00578D</color>

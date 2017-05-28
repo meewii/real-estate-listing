@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_vertical_S">5dp</dimen>
+    <dimen name="margin_vertical_M">10dp</dimen>
+    <dimen name="margin_vertical_L">16dp</dimen>
+
+    <dimen name="margin_horizontal_S">5dp</dimen>
+    <dimen name="margin_horizontal_M">10dp</dimen>
+    <dimen name="margin_horizontal_L">16dp</dimen>
+
+    <dimen name="text_S">13sp</dimen>
+    <dimen name="text_M">16sp</dimen>
+    <dimen name="text_L">20dp</dimen>
+</resources>

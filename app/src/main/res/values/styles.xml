@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/immo_dark_gray</item>
+        <item name="android:textSize">@dimen/text_M</item>
+    </style>
+
+    <style name="Text.Address">
+        <item name="android:textColor">@color/immo_blue_darker</item>
+        <item name="android:textSize">@dimen/text_S</item>
+    </style>
+
+    <style name="Text.Price">
+        <item name="android:textColor">@color/immo_dark_gray</item>
+        <item name="android:textSize">@dimen/text_L</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
 </resources>
