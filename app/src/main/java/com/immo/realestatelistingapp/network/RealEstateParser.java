@@ -1,5 +1,6 @@
 package com.immo.realestatelistingapp.network;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.immo.realestatelistingapp.core.App;
@@ -14,8 +15,18 @@ import java.util.ArrayList;
 
 public class RealEstateParser {
 
-    public static ArrayList<RealEstate> parse(Response response) {
+    public static ArrayList<RealEstate> parse(@NonNull Response response) {
         String tag = "RealEstateParser.parse - ";
+
+        if(response.getCode() < 200 && response.getCode() > 300) {
+            Log.e(App.TAG, tag + "Response code is not OK");
+            return null;
+        }
+
+        if(response.getContent() == null) {
+            Log.e(App.TAG, tag + "Error: Couldn't parse null content!");
+            return null;
+        }
 
         JSONArray items = null;
         try {
