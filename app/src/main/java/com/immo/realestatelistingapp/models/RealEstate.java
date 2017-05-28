@@ -22,7 +22,7 @@ import java.util.ArrayList;
  *   ]
  * }
  */
-public class RealEstate {
+public class RealEstate implements ListItem {
 
     private int mId;
     private String mTitle;

@@ -26,4 +26,9 @@
         <item name="android:textStyle">bold|italic</item>
     </style>
 
+    <style name="Text.Ad">
+        <item name="android:textColor">@color/immo_blue_darker</item>
+        <item name="android:textSize">@dimen/text_L</item>
+    </style>
+
 </resources>

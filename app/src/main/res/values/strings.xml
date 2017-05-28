@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Real Estate Listing</string>
-    <string name="loading">Loading...</string>
+    <string name="unknown_title">Unknown title</string>
 </resources>
