@@ -14,7 +14,6 @@
             android:background="@color/immo_light_gray"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:adjustViewBounds="true"
             />
 
         <TextView

@@ -26,7 +26,7 @@ public class RealEstate implements ListItem {
 
     private int mId;
     private String mTitle;
-    private double mPrice;
+    private int mPrice;
     private Location mLocation;
     private ArrayList<String> mImages;
 
@@ -46,11 +46,11 @@ public class RealEstate implements ListItem {
         mTitle = title;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return mPrice;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         mPrice = price;
     }
 
@@ -76,7 +76,7 @@ public class RealEstate implements ListItem {
         RealEstate realEstate = new RealEstate();
         if(jsonObject.has("id")) realEstate.setId(jsonObject.optInt("id"));
         if(jsonObject.has("title")) realEstate.setTitle(jsonObject.optString("title"));
-        if(jsonObject.has("price")) realEstate.setPrice(jsonObject.optDouble("price"));
+        if(jsonObject.has("price")) realEstate.setPrice(jsonObject.optInt("price"));
 
         if(jsonObject.has("location")) {
             Location location = Location.fromJsonObject(jsonObject.optJSONObject("location"));
