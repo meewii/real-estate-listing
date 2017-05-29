@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,10 +12,10 @@ import com.immo.realestatelistingapp.core.App;
 import com.immo.realestatelistingapp.models.Advertisement;
 import com.immo.realestatelistingapp.models.ListItem;
 import com.immo.realestatelistingapp.models.RealEstate;
-import com.immo.realestatelistingapp.network.HttpClient;
-import com.immo.realestatelistingapp.network.RealEstateParser;
-import com.immo.realestatelistingapp.network.models.Request;
-import com.immo.realestatelistingapp.network.models.Response;
+import com.immo.realestatelistingapp.http.HttpClient;
+import com.immo.realestatelistingapp.http.RealEstateParser;
+import com.immo.realestatelistingapp.http.models.Request;
+import com.immo.realestatelistingapp.http.models.Response;
 
 import java.util.ArrayList;
 
@@ -29,16 +28,13 @@ public class RealEstateListTask extends AsyncTask<Void, Void, Void> {
     private Context mContext;
     private ArrayList<ListItem> mListItems;
     private RealEstateAdapter mRealEstateAdapter;
-    private RecyclerView mRecyclerView;
 
     public RealEstateListTask(Context context,
                               ArrayList<ListItem> listItems,
-                              RealEstateAdapter adapter,
-                              RecyclerView recyclerView) {
+                              RealEstateAdapter adapter) {
         mContext = context;
         mListItems = listItems;
         mRealEstateAdapter = adapter;
-        mRecyclerView = recyclerView;
     }
 
     @Override
@@ -48,6 +44,7 @@ public class RealEstateListTask extends AsyncTask<Void, Void, Void> {
         HttpClient httpClient = new HttpClient();
 
         // Get list of items from API
+        // TODO: fetch data from database instead of directly from API
         Response response = httpClient.execute(new Request("GET"));
         if(response == null) {
             showToast("Error: The app was not able to fetch list of items.");
@@ -59,6 +56,7 @@ public class RealEstateListTask extends AsyncTask<Void, Void, Void> {
         // Parse json response to pojo
         ArrayList<RealEstate> realEstateList = RealEstateParser.parse(response);
 
+        // Add advertisement items in the list
         if(realEstateList != null) {
             mListItems = addAdvertisement(mListItems, realEstateList);
         }
@@ -104,11 +102,17 @@ public class RealEstateListTask extends AsyncTask<Void, Void, Void> {
 
         Log.i(App.TAG, tag + "Items: "+ mListItems.size());
 
+        // Inform Adapter that the ArrayList was updated
         if(mRealEstateAdapter != null) {
             mRealEstateAdapter.notifyDataSetChanged();
         }
     }
 
+    /**
+     * Helper method that display a message in the app (Toast) and in the logcat
+     *
+     * @param message string to be displayed
+     */
     private void showToast(final String message) {
         Log.e(App.TAG, message);
 

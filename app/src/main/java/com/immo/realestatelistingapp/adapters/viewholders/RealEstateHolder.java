@@ -1,4 +1,4 @@
-package com.immo.realestatelistingapp.adapters;
+package com.immo.realestatelistingapp.adapters.viewholders;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,12 +10,12 @@ import com.immo.realestatelistingapp.R;
 import com.immo.realestatelistingapp.models.RealEstate;
 import com.squareup.picasso.Picasso;
 
-class RealEstateHolder extends RecyclerView.ViewHolder {
+public class RealEstateHolder extends RecyclerView.ViewHolder {
 
     private TextView mTitleView, mPriceView, mAddressView;
     private ImageView mImageView;
 
-    RealEstateHolder(View view) {
+    public RealEstateHolder(View view) {
         super(view);
         mTitleView = (TextView) view.findViewById(R.id.title);
         mPriceView = (TextView) view.findViewById(R.id.price);
@@ -23,7 +23,7 @@ class RealEstateHolder extends RecyclerView.ViewHolder {
         mImageView = (ImageView) view.findViewById(R.id.image);
     }
 
-    void bindToRealEstate(
+    public void bindToRealEstate(
             Context context,
             RealEstate realEstate,
             View.OnClickListener clickListener) {

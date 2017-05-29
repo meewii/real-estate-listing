@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.immo.realestatelistingapp.R;
+import com.immo.realestatelistingapp.adapters.viewholders.AdvertHolder;
+import com.immo.realestatelistingapp.adapters.viewholders.RealEstateHolder;
 import com.immo.realestatelistingapp.core.App;
 import com.immo.realestatelistingapp.models.Advertisement;
 import com.immo.realestatelistingapp.models.ListItem;
@@ -15,6 +17,11 @@ import com.immo.realestatelistingapp.models.RealEstate;
 
 import java.util.ArrayList;
 
+/**
+ * This class will adapt the list depending on what ListItem is in the ArrayList: RealEstate
+ * or Advertisement.
+ * It uses 2 different ViewHolders for each type of ListItem: RealEstateHolder & AdvertHolder.
+ */
 public class RealEstateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final int TYPE_REAL_ESTATE = 0;
@@ -63,6 +70,7 @@ public class RealEstateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     @Override
                     public void onClick(View starView) {
                         Log.d(App.TAG, "RealEstateAdapter.onBindViewHolder:onClick id: "+realEstate.getId());
+                        // TODO: Task2 - display a diaporama of all pictures with realEstate.getImages()
                     }
                 });
                 break;

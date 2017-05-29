@@ -1,4 +1,4 @@
-package com.immo.realestatelistingapp.network.models;
+package com.immo.realestatelistingapp.http.models;
 
 public class Response {
 

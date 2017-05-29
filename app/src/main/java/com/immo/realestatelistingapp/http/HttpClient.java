@@ -1,12 +1,12 @@
-package com.immo.realestatelistingapp.network;
+package com.immo.realestatelistingapp.http;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.immo.realestatelistingapp.core.App;
-import com.immo.realestatelistingapp.network.models.Request;
-import com.immo.realestatelistingapp.network.models.Response;
+import com.immo.realestatelistingapp.http.models.Request;
+import com.immo.realestatelistingapp.http.models.Response;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,15 +17,15 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-@SuppressWarnings("FieldCanBeLocal")
 public class HttpClient {
 
+    @SuppressWarnings("FieldCanBeLocal")
     private final String API_ENDPOINT = "https://private-e618e0-mobiletask2.apiary-mock.com/realestates";
 
     public @Nullable Response execute(@NonNull Request request) {
         String tag = "HttpClient.execute() - ";
 
-        Log.d(App.TAG, tag + "Request '" + request.getMethod() + "'");
+        Log.d(App.TAG, tag + "Request method: '" + request.getMethod() + "'");
 
         URL url;
         try {
@@ -45,7 +45,7 @@ public class HttpClient {
 
         conn.setRequestProperty("Content-Type", "application/json");
 
-        // We would add conditions for POST methods (not necessary here)
+        // TODO: add switch for other HTTP methods
         try {
             conn.setRequestMethod(request.getMethod());
         } catch (ProtocolException e) {

@@ -28,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        // Start AsyncTask to load and display list of real estates
+        // TODO: fetch and persist data before displaying this Activity.
+
+        // Start AsyncTask that loads and displays list of real estates
         new RealEstateListTask(
                 getApplicationContext(),
                 realEstateList,
-                adapter,
-                recyclerView
+                adapter
         ).execute();
     }
 
